@@ -28,11 +28,12 @@ SECRET_KEY = '5p9kgeb$g-y(2=nk5ub46r@uqy+!7ts(ud4^@zy5(68b8^f@(x'
 DEBUG = config("DEBUG", cast=bool, default=True)
 
 ALLOWED_HOSTS = ["*"]
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'http://localhost:8080',
-    'http://localhost:8081',
-]
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:3000',
+#     'http://localhost:8080',
+#     'http://localhost:8081',
+#     'https://bcg-insurance-frontend.vercel.app/'
+# ]
 
 LOG_LEVEL = 'ERROR'
 
@@ -63,7 +64,7 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
