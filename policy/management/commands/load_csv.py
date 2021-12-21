@@ -38,17 +38,17 @@ class Command(BaseCommand):
             fuel_type = row[3]  # Fuel Type
             segment = row[4].upper()  # Vehicle Segment
             premium = int(row[5])  # Premium
-            body_injury = True if row[6] == 1 else False  # Bodily Injury
-            personal_injury = True if row[7] == 1 else False  # Personal Injury
-            property_damage = True if row[8] == 1 else False  # Property Damage
-            collision = True if row[9] == 1 else False  # Collision
-            comprehensive = True if row[10] == 1 else False  # Comprehensive
+            body_injury = True if row[6] == "1" else False  # Bodily Injury
+            personal_injury = True if row[7] == "1" else False  # Personal Injury
+            property_damage = True if row[8] == "1" else False  # Property Damage
+            collision = True if row[9] == "1" else False  # Collision
+            comprehensive = True if row[10] == "1" else False  # Comprehensive
             gender = row[11].lower()  # Customer Gender
             income_group = self.get_income_group_key(
                 row[12])  # Customer Income Group
             region = row[13].lower()  # Customer Region
             # Customer Marital Status
-            is_married = True if row[14] == 1 else False
+            is_married = True if row[14] == "1" else False
 
             # Customer
             customer, created = Customer.objects.get_or_create(pk=customer_id,)
