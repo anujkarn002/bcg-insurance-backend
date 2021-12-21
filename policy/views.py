@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, GenericAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, GenericAPIView, RetrieveUpdateAPIView
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
 from rest_framework.response import Response
@@ -30,6 +30,7 @@ class PolicyStatView(ListAPIView):
         return Response(serializer.data)
 
 
+
 class PolicyListView(ListAPIView):
     serializer_class = PolicySerializer
     queryset = Policy.objects.all()
@@ -59,7 +60,7 @@ class PolicyListView(ListAPIView):
 
 
 
-class PolicyUpdateView(UpdateAPIView):
+class PolicyUpdateView(RetrieveUpdateAPIView):
     serializer_class = PolicySerializer
     queryset = Policy.objects.all()
 
@@ -83,4 +84,5 @@ class PolicyUpdateView(UpdateAPIView):
     def partial_update(self, request, *args, **kwargs):
         kwargs['partial'] = True
         return self.update(request, *args, **kwargs)
+
 
